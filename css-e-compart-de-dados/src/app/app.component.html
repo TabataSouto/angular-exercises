@@ -1,0 +1,11 @@
+<h2>Css em Angular!!!</h2>
+<p>Entendendo scoped do CSS (a nível de componente)</p>
+<div>
+  <a href="#">
+    Clique aqui!!
+  </a>
+</div>
+<app-first-component></app-first-component>
+<!-- aqui iremos compartilhar a informação do userName, que foi
+declarada no componente Pai, no componente filho. -->
+<app-parent-data [name]="userName" [data]="userData"></app-parent-data>
