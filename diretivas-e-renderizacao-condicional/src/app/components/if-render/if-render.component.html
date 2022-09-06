@@ -1,0 +1,16 @@
+<div class="class">
+  <div *ngIf="canShow">
+    <p>Estamos mostrando isso porque foi permitido!</p>
+  </div>
+  <!-- no else, é colocado o nome de um novo componente que será criado.
+  Nessa caso, foi informado no else que seria criado um novo componente
+  nomeado como "nameNotFound" -->
+  <h2 *ngIf="name === 'Tabata'; else nameNotFound">O nome é Tabata</h2>
+  <!-- a tag ng-template é própria para criação de novos componentes,
+  pois não podemos nomear uma div, ou um section. Dessa forma, a
+  ng-template é nomeada de acordo com o nome informado no else,
+  utilizando # para que seja noemado. -->
+  <ng-template #nameNotFound>
+    <h2>O nome não foi encontrado</h2>
+  </ng-template>
+</div>
