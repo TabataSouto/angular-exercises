@@ -1,0 +1,20 @@
+<div class="all">
+  <h2>Two way data binding</h2>
+  <form>
+    <!-- Por "baixo dos panos", ao utilizarmos o recurso [(ngModel)]
+    o Angular faz um mapeamento a propriedade chamada "name" no 
+    model dele fazendo um link com essa propriedade e alterando
+    o seu valor de acordo com o que for preenchudo no input. Não
+    é preciso uma função como é feito no react para que o valor
+    do input seja capturado. -->
+    <input type="text" [(ngModel)]="name" name="name" placeholder="Digite o seu nome" />
+    <input type="text" [(ngModel)]="hobbie" name="hobbie" placeholder="Digite o hobbie que mais gosta" />
+    <input type="number" [(ngModel)]="age" name="age" placeholder="Digite sua idade" />
+    <input type="submit" value="Enviar" (click)="handleClick()" />
+  </form>
+  <div *ngIf="showInfos">
+    <p>O nome é: {{name}}</p>
+    <p>Seu hobbie é: {{hobbie}}</p>
+    <p>Sua idade é: {{age}}</p>
+  </div>
+</div>
