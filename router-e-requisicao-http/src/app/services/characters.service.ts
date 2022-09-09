@@ -8,11 +8,15 @@ import { Character } from '../interfaces/Character';
   providedIn: 'root'
 })
 export class CharactersService {
-  private url = 'https://www.moogleapi.com/api/v1/characters/random';
+  private url = 'https://www.moogleapi.com/api/v1/characters';
 
   constructor(private http: HttpClient) { }
 
-  getRandomCharacter(): Observable<Character> {
-    return this.http.get<Character>(this.url);
+  getRandomCharacter(): Observable<Character[]> {
+    return this.http.get<Character[]>(this.url);
+  }
+
+  getItem(id: number): Observable<Character>{
+    return this.http.get<Character>(`${this.url}/${id}`);
   }
 }

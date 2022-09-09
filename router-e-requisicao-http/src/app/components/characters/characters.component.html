@@ -1,10 +1,7 @@
 <div class="all">
   <h2>Personagem aleatório:</h2>
-  <img src={{character.pictures[0].url}} alt="Personagem" style="width: 150px;">
-  <ul>
-    <li>Nome: {{ character.name }}</li>
-    <li>Trabalho: {{ character.job }}</li>
-    <li>Origem: {{ character.origin }}</li>
-    <li>Descrição: {{ character.description }}</li>
-  </ul>
+  <div *ngFor="let character of characters.slice(0, 10)">
+    <img src={{character.pictures[0].url}} alt="Personagem" style="width: 100px;">
+    <a routerLink="/characters/{{character.id}}">Nome do personagem: {{character.name}}</a>
+  </div>
 </div>

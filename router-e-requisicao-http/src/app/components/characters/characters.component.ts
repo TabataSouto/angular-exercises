@@ -8,7 +8,7 @@ import { CharactersService } from 'src/app/services/characters.service';
   styleUrls: ['./characters.component.css']
 })
 export class CharactersComponent implements OnInit {
-  character!: Character;
+  characters: Character[] = [];
 
   constructor(private server: CharactersService) {  
     this.getRandomCharacters();
@@ -19,7 +19,7 @@ export class CharactersComponent implements OnInit {
 
   getRandomCharacters() {
     this.server.getRandomCharacter().subscribe(
-      (character) => this.character = character
+      (character) => this.characters = character
     )
   }
 }

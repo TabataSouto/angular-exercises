@@ -1,6 +1,7 @@
 <div class="all">
   <h2>Animais: </h2>
   <ul *ngFor="let animal of animals">
-    <li>Nome: {{ animal.name }} - Tipo: {{ animal.type }}</li>
+    <li>
+      Nome: <a routerLink="/list/{{animal.id}}">{{ animal.name }}</a> - Tipo: {{ animal.type }}</li>
   </ul>
 </div>
