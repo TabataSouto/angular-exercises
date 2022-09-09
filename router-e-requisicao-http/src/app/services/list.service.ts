@@ -13,6 +13,7 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
+
 export class ListService {
   private apiURL = 'http://localhost:3000/animals';
 
@@ -29,5 +30,9 @@ export class ListService {
 
   getItem(id: number): Observable<Animal>{
     return this.http.get<Animal>(`${this.apiURL}/${id}`);
+  }
+
+  removeAnimal(id: number) {
+    return this.http.delete<Animal>(`${this.apiURL}/${id}`);
   }
 }

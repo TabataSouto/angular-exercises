@@ -8,6 +8,7 @@ import { Animal } from 'src/app/interfaces/Animal';
   templateUrl: './render-list.component.html',
   styleUrls: ['./render-list.component.css']
 })
+
 export class RenderListComponent implements OnInit {
 
   animals: Animal[] = [];
@@ -33,4 +34,13 @@ export class RenderListComponent implements OnInit {
     this.listService.getAllAnimals().subscribe((animals) => this.animals = animals);
   }
 
+  removeAnimal(animal: Animal) {
+    /* Nesse caso, o filter é necessário para que a atualização
+    em tempo real ocorra. Do contrário, o "item" será removido
+    do banco de dados, mas para que isso seja refletido na aplicação,
+    seria necessário recarregar a página. Com o filter, não é
+    preciso esse recarregamento. */
+    this.animals = this.animals.filter((a) => a.name != animal.name);
+    this.listService.removeAnimal(animal.id).subscribe();
+  }
 }
